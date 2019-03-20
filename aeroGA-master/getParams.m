@@ -1,6 +1,6 @@
 % -----------------------------------------------------------------------------------
 % AeroGA: Genetic Algorithm used to optimize the shape of small-scale airplane wings
-% Copyright (C) 2016  Daniel Kneipp de Sá Veira
+% Copyright (C) 2016  Daniel Kneipp de SÃ¡ Veira
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -18,9 +18,10 @@
 
 function [params] = getParams(i, j)
     %    min   max
-    T = [0.60, 0.80; % Cl
-         1.40, 2.00; % Clmax
-         3,    30];  % Cp
+    T = [0.100, 0.150; % ao
+         -2.224, -0.050; % alphao   
+         1.000,    1.300; % clmax
+         2.303,    2.997];  % M
     %      min  max
     Dist = [69, 69.1];
 
