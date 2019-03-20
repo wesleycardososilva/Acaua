@@ -17,6 +17,19 @@
 % -----------------------------------------------------------------------------------
 
 function cost = costFunc(solution)
+    T = [0.100, 0.150; % ao
+             -2.224, -0.050; % alphao   
+             1.000,    1.300; % clmax
+             2.303,    2.997];  % M
+        %      min  max
+     ao = solution(1);
+     M = solution(2);
+     alphao = solution(3);
+     clmax = solution(4);
+    
+    cost=getFitness2(ao, M, alphao, clmax)
+    if (solution[1]<T[1][1]||solution[1]>T[1][2]||solution[2]<T[2][1]||solution[2]>T[2][2]||solution[3]<T[3][1]||solution[3]>T[3][2]||solution[4]<T[4][1]||solution[4]>T[4][2])
+         cost= abs(cost) *(-1); 
    %if containsNegative(solution)
        % cost = 1e15;
     %else
@@ -46,7 +59,8 @@ function cost = costFunc(solution)
             %cost = cost * (1 + costRestrMax + costRestrMin);
         %end
    %end
-   cost= (solution(1)/solution(2)) - 200 * abs((solution(1) + solution(2)) - 2.8 );
+   
+  % cost= (solution(1)/solution(2)) - 200 * abs((solution(1) + solution(2)) - 2.8 );
 end
 
 function result = containsNegative(array)
