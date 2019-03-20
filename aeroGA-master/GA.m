@@ -1,6 +1,6 @@
 % -----------------------------------------------------------------------------------
 % AeroGA: Genetic Algorithm used to optimize the shape of small-scale airplane wings
-% Copyright (C) 2016  Daniel Kneipp de Sá Veira
+% Copyright (C) 2016  Daniel Kneipp de SÃ¡ Veira
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ function [bestSol, solHist] = GA(populationSize, costFunction, nMaxIters)
 %GA Genetic Algorithm using real encoding, penalization method,
 % polarized crossing, non uniform mutation and tournament selection
 
-nDecisionVars = 3; % Cl, Clmax, Cp
+nDecisionVars = 4; % ao, M, alphao, clmax
 initialPopulation = genRandVals(populationSize, nDecisionVars, getParams(0,1)', getParams(0,2)');
 nIters = 1;
 solHist = [];
