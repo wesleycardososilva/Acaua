@@ -27,9 +27,12 @@ function cost = costFunc(solution)
      alphao = solution(3);
      clmax = solution(4);
     
-    cost=getFitness2(ao, M, alphao, clmax)
-    if (solution[1]<T[1][1]||solution[1]>T[1][2]||solution[2]<T[2][1]||solution[2]>T[2][2]||solution[3]<T[3][1]||solution[3]>T[3][2]||solution[4]<T[4][1]||solution[4]>T[4][2])
+    cost=getFitness(ao, M, alphao, clmax);
+    if solution(1)<0.100||solution(1)>0.150||solution(2)<-2.224||solution(2)> -0.050||solution(3)<1.000||solution(3)>1.300||solution(4)<2.303||solution(4)>2.997
          cost= abs(cost) *(-1); 
+         %cost= 1e-15;
+    end
+    
    %if containsNegative(solution)
        % cost = 1e15;
     %else
