@@ -20,7 +20,7 @@ function [bestElements, positions] = getBestNElements(elements, n)
     bestElements = zeros(n, 1);
     positions = zeros(n, 1);
     for i = 1:n
-        [bestElements(i), positions(i)] = min(elements);
+        [bestElements(i), positions(i)] = max(elements);
         elements(positions(i)) = [];
     end
 end

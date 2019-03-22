@@ -18,19 +18,18 @@
 
 function cost = costFunc(solution)
     T = [0.100, 0.150; % ao
-        -2.224, -0.050; % alphao   
-        1.000,   1.300; % clmax
-        2.303,   2.997];  % M
-       %min      max
+            -2.224, -0.050; % alphao   
+             1.000,    1.300; % clmax
+             2.303,    2.997];  % M
+        %      min  max
      ao = solution(1);
      alphao = solution(2);
      clmax = solution(3);
      M = solution(4);
     
-    %cost = getFitness2(ao, M, alphao, clmax);
-    cost = getFitness3(ao, alphao, clmax, M);
+    cost = getFitness(ao, M, alphao, clmax);
     if (((solution(1) < 0.100) || (solution(1) > 0.150)) || ((solution(2) < -2.224) || (solution(2) > -0.050)) || ((solution(3) < 1.000) || (solution(3) > 1.300)) || ((solution(4) < 2.303) || (solution(4) > 2.997)))
-         cost = abs(cost) *(-1); 
+         cost= abs(cost) *(-1); 
          %cost= 1e-15;
     end
     

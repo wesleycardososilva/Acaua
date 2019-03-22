@@ -28,7 +28,7 @@ function selectedPopulation = tournament(population, populationPerformance, T, s
         for j = 2:T
             ring(j) = getRandomPos(populationSize(1));
             % Minimization
-            if populationPerformance(ring(j)) < populationPerformance(best)
+            if populationPerformance(ring(j)) > populationPerformance(best)
                 best = ring(j);
             end
         end

@@ -20,7 +20,7 @@ OUTPUT_FILE_NAME = 'result';
 
 N_MAX_ITERS = 200;
 N_INDIVIDUALS = 80;
-N_REPETITIONS = 100;
+N_REPETITIONS = 5;
 
 fprintf('\n\n======================     AeroGA     ======================\n\n')
 
@@ -44,7 +44,7 @@ for i = 1:N_REPETITIONS
 end
 executionTime = toc(initialTime);
 
-[bestSolCost, bestSolIndex] = min(solHistCostFromRepetitions);
+[bestSolCost, bestSolIndex] = max(solHistCostFromRepetitions);
 bestSol = solHistFromRepetitions(bestSolIndex, :);
 
 save(OUTPUT_FILE_NAME, 'solHistFromRepetitions', 'solHistCostFromRepetitions', 'bestSol', 'bestSolCost');
