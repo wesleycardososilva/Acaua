@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+int contador=0;
+int main () {
+
+   while(contador<10){
+       FILE *fp;
+       FILE *arq;
+       int len=0, result,i=0,j,k;
+       int conta=0,vet[100];
+       char ch, fim='\n',fecha=')',abre='(';
+       char trecho[900000],auxiliar[900000];
+       fp = fopen("example.txt","r+");
+       arq = fopen("saidaTeste.txt","a");
+       while ((ch = fgetc(fp)) != EOF)
+            {
+                if(ch==fecha){/// caminha pelo arquivo até encontrar o primeiro fecha parentesis da equação
+                    fseek( fp, len, SEEK_CUR );/// armazena na variável len a posição do caractere corrente
+                    len = ftell(fp);///len terá a posição do fecha parentese
+                    break;/// quando ele é encontrado, o programa sai do while
+                }
+            }
+
+        while ((ch = fgetc(fp)) != abre)
+            {
+              fseek( fp,-3 , SEEK_CUR );
+              conta++;
+              ch = fgetc(fp);
+                /// ao final, len armazenará quantidade de posições que ele andou pra trás, esse número será negativo
+
+                if(ch==abre){
+                    fseek( fp,-1 , SEEK_CUR );
+                    for(j=conta;j>=0;j--){
+                            fputc(' ', fp);
+                        }
+                    fseek( fp,-3 , SEEK_CUR );
+                    fprintf(fp, "f%d",contador);
+                    break;/// quando encontrar, sai do while
+                }
+                else{///Dentro do else um vetor ou variável armazenará o conteúdo da equação enquanto não chegar no abre parentese
+                    trecho[i]=ch;  /// O problema é que na equação terá números e letras
+                   // printf("\n %c",trecho[i]);
+                    i++;
+
+                }
+            }
+        fprintf(arq, "f%d=",contador);
+        for(k=conta-2;k>=0;k--){
+            if(trecho[k]!=' '){fprintf(arq, "%c", trecho[k]);}
+        }
+        contador++;
+        fputc('\n', arq);
+        fclose(fp);
+        fclose(arq);
+   }
+
+
+   return(0);
+}
+
