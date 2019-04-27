@@ -44,7 +44,7 @@ function children = polarizedCrossing(population, populationPerformance)
         child1(startNormal:finishNormal) = parent1(startNormal:finishNormal);
         child2(startNormal:finishNormal) = parent2(startNormal:finishNormal);
 
-        % Maximization
+        % Se for maximizar o sinal é >, se for minimizar o sinal é <
         if populationPerformance(i) > populationPerformance(i+1)
             child1(startPolarized:finishPolarized) = alpha .* parent1(startPolarized:finishPolarized) + ...
                                                      betha .* parent2(startPolarized:finishPolarized);
