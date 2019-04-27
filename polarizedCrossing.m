@@ -1,6 +1,6 @@
 % -----------------------------------------------------------------------------------
 % AeroGA: Genetic Algorithm used to optimize the shape of small-scale airplane wings
-% Copyright (C) 2016  Daniel Kneipp de Sá Veira
+% Copyright (C) 2016  Daniel Kneipp de SÃ¡ Veira
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ function children = polarizedCrossing(population, populationPerformance)
         child1(startNormal:finishNormal) = parent1(startNormal:finishNormal);
         child2(startNormal:finishNormal) = parent2(startNormal:finishNormal);
 
-        % Minimization
+        % Maximization
         if populationPerformance(i) > populationPerformance(i+1)
             child1(startPolarized:finishPolarized) = alpha .* parent1(startPolarized:finishPolarized) + ...
                                                      betha .* parent2(startPolarized:finishPolarized);
