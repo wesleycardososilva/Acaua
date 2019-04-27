@@ -1,6 +1,6 @@
 % -----------------------------------------------------------------------------------
 % AeroGA: Genetic Algorithm used to optimize the shape of small-scale airplane wings
-% Copyright (C) 2016  Daniel Kneipp de S� Veira
+% Copyright (C) 2016  Daniel Kneipp de Sá Veira
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ function selectedPopulation = tournament(population, populationPerformance, T, s
         best = ring(1);
         for j = 2:T
             ring(j) = getRandomPos(populationSize(1));
-            % Minimization
+           % Se for maximizar o sinal é >, se for minimizar o sinal é <
             if populationPerformance(ring(j)) > populationPerformance(best)
                 best = ring(j);
             end
